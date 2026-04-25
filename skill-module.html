@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Module | Academy</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --sidebar-width: 320px;
+        }
+
+        body {
+            background-color: #f8fafc;
+        }
+
+        .module-wrapper {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 80px; /* Offset for navbar */
+        }
+
+        /* Sidebar Styles */
+        .module-sidebar {
+            width: var(--sidebar-width);
+            background: #fff;
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            padding: 2rem 1rem;
+            z-index: 100;
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            font-weight: 700;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            background: var(--bg-secondary);
+            color: var(--accent-green);
+        }
+
+        .nav-item.active {
+            background: var(--bg-secondary);
+            color: var(--accent-green);
+            box-shadow: inset 0 0 0 1px rgba(12, 81, 51, 0.1);
+        }
+
+        .nav-item-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Content Area Styles */
+        .module-main {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 4rem;
+            max-width: 1200px;
+        }
+
+        .module-header {
+            margin-bottom: 4rem;
+        }
+
+        .module-tag {
+            color: var(--accent-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .module-main h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .module-intro {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        .module-section {
+            background: #fff;
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .module-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .module-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--accent-green);
+        }
+
+        .lesson-list {
+            list-style: none;
+        }
+
+        .lesson-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .lesson-list li:last-child {
+            border-bottom: none;
+        }
+
+        .lesson-check {
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .dialog-box {
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .dialog-line {
+            margin-bottom: 1rem;
+        }
+
+        .speaker {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .module-sidebar {
+                display: none;
+            }
+            .module-main {
+                margin-left: 0;
+                padding: 2rem;
+            }
+            .module-main h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="module-wrapper">
+        <aside class="module-sidebar">
+            <div class="sidebar-title">Academy Modules</div>
+            <nav>
+                <a href="#prospecting" class="nav-item" data-target="prospecting">
+                    <span class="nav-item-icon">🔍</span> Prospecting
+                </a>
+                <a href="#communication" class="nav-item" data-target="communication">
+                    <span class="nav-item-icon">💬</span> Communication
+                </a>
+                <a href="#copywriting" class="nav-item" data-target="copywriting">
+                    <span class="nav-item-icon">✍️</span> Copywriting
+                </a>
+                <a href="#sales" class="nav-item" data-target="sales">
+                    <span class="nav-item-icon">💰</span> Sales Mastery
+                </a>
+                <a href="#branding" class="nav-item" data-target="branding">
+                    <span class="nav-item-icon">🌟</span> Personal Brand
+                </a>
+                <a href="#presenting" class="nav-item" data-target="presenting">
+                    <span class="nav-item-icon">🎤</span> Presenting
+                </a>
+                <a href="#events" class="nav-item" data-target="events">
+                    <span class="nav-item-icon">🗓️</span> Event Planning
+                </a>
+                <a href="#zoom" class="nav-item" data-target="zoom">
+                    <span class="nav-item-icon">💻</span> Zoom Expert
+                </a>
+            </nav>
+        </aside>
+
+        <main class="module-main" id="module-content">
+            <!-- Content will be injected here by JS -->
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="components.js"></script>
+    <script>
+        const moduleData = {"prospecting": {"tag": "Module 01", "title": "How to Find New Friends for Your Business", "intro": "The biggest secret to success is never running out of people to talk to. In this module, we'll show you how to find 'prospects' (future friends and partners) everywhere you go, in a very natural and friendly way. 10x your contact list with these simple steps!", "sections": [{"title": "The 'Everyone is a Connection' Mindset", "content": "<p>You don't need to be a 'salesperson'. You just need to be a 'friend-maker'. Think of people you already know and people you haven't met yet. We divide them into three simple groups:</p><h3>1. Your 'Hot' Market (People you love)</h3><p>These are your family and best friends. They trust you the most. Just tell them what you're doing with no pressure! Say: <em>'Hey, I just started a new health project. I respect your opinion so much, could you take a look at this and tell me what you think?'</em></p><h3>2. Your 'Warm' Market (People you see often)</h3><p>Your barber, the person at the grocery store, old schoolmates, or Facebook friends. You know them, but not deeply. Catch up with them first. Ask how they are doing. If they complain about money or health, offer a solution!</p><h3>3. Your 'Cold' Market (New friends)</h3><p>People you meet at church, at the gym, or in Facebook groups. Don't pitch them immediately. Make a friend first, find out what they need, and then invite them to look at your business.</p>"}, {"title": "The Quality Filter: Who is a Good Fit?", "content": "<p>Stop trying to 'convince' everyone. Look for people who actually want and need what you have. Use this simple checklist when talking to someone:</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>Do they have a Need?</strong> Are they looking for better health or extra income?</li><li><span class='lesson-check'>\u2713</span> <strong>Do they have the Ability?</strong> Can they afford the products or the startup cost, or are they resourceful enough to find a way?</li><li><span class='lesson-check'>\u2713</span> <strong>Are they a Decision Maker?</strong> Can they make choices for themselves?</li></ul>"}, {"title": "Facebook & WhatsApp: The Friendly Way", "content": "<p>Don't just send links to people! That's like shouting at someone. Use the '3-Comment Rule' instead:</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>Step 1: Like and Comment.</strong> Go to their photo and say something nice like 'Your kids look so happy!'</li><li><span class='lesson-check'>\u2713</span> <strong>Step 2: The Private Message.</strong> A few days later, send a message: 'Hey! I saw your post. How have you been? It's been a while!'</li><li><span class='lesson-check'>\u2713</span> <strong>Step 3: The Bridge.</strong> Ask 'What are you working on these days?' They will usually answer and then ask YOU the same question. That is your invitation to share!</li></ul>"}, {"title": "What if they ask 'Is this a scam or pyramid scheme?'", "content": "<div class='dialog-box'><p>Don't be upset! Usually, they are just worried because they don't understand yet.</p><div class='dialog-line'><span class='speaker'>Them:</span> Is this one of those pyramid things?</div><div class='dialog-line'><span class='speaker'>You:</span> (With a smile) I know why you're asking! I used to worry about that too. What's your experience with those kinds of things?</div><div class='dialog-line'><span class='speaker'>Them:</span> Well, my friend lost money in one where only the top guys made anything.</div><div class='dialog-line'><span class='speaker'>You:</span> Oh wow, I wouldn't want to be part of something like that either! That's why I love this community. We have real products that actually help people get healthy, like the GI Vital that helps with ulcers. And anyone can earn more than the person who invited them if they work hard. Would you be open to seeing how it actually works?</div></div>"}]}, "communication": {"tag": "Module 02", "title": "How to Talk So People Listen", "intro": "Good communication is 20% what you say and 80% how you listen. This module will show you how to make people feel completely comfortable, understood, and excited to talk to you.", "sections": [{"title": "The 3 Levels of Magic Listening", "content": "<p>Most people just wait for their turn to talk. If you listen better, people will trust you instantly.</p><h3>Level 1: Listening to Yourself</h3><p>This is when you hear them, but you are thinking about what YOU want to say next. Try to avoid this!</p><h3>Level 2: Listening to Them</h3><p>This is when you look them in the eyes and focus 100% on their words. You are in their world.</p><h3>Level 3: Listening to the Unsaid</h3><p>This is mastery. You notice if they sound tired, scared, or excited. You hear the emotion behind the words. When you reply, say: 'You sound a bit stressed about work, is everything okay?'</p>"}, {"title": "Matching Their Energy", "content": "<p>People like people who are like them. If your friend is talking quietly and slowly, don't shout and speak fast! Match their speed and volume. It makes them feel safe and understood.</p>"}, {"title": "The 'Feel-Felt-Found' Secret", "content": "<p>This is the best way to answer ANY worry someone has without arguing.</p><div class='dialog-box'><h3>Example: 'I don't have time.'</h3><div class='dialog-line'><span class='speaker'>You:</span> I completely understand how you <strong>feel</strong>. We are all so busy these days!</div><div class='dialog-line'><span class='speaker'>You:</span> In fact, my friend Sarah <strong>felt</strong> the exact same way. She was working 10 hours a day and taking care of three kids.</div><div class='dialog-line'><span class='speaker'>You:</span> But what she <strong>found</strong> was that by just using 30 minutes on her phone each evening, she was able to build a side income that eventually gave her more free time. If I could show you how she did it in 30 minutes, would you be open to taking a look?</div></div>"}]}, "copywriting": {"tag": "Module 03", "title": "Writing Posts That People Love", "intro": "You don't need to be an expert writer! You just need to share your heart. This module shows you how to write posts on WhatsApp or Facebook that make people stop scrolling and want to ask you questions.", "sections": [{"title": "The 4 Parts of a Great Post", "content": "<p>Every time you post about the business or products, try to follow these 4 simple steps to get maximum comments and likes:</p><h3>1. The Grabber (Headline)</h3><p>Start with something that makes them stop scrolling. A question works best! Example: 'Who else hates waking up feeling tired even after 8 hours of sleep?'</p><h3>2. The Story (The Problem)</h3><p>Tell a short, real story about a struggle. 'My energy was so low, I couldn't even play with my kids after work. I felt like I was running on empty.'</p><h3>3. The Good News (The Solution)</h3><p>Tell them what changed. 'Then my friend introduced me to a natural calcium and zinc supplement. Within a week, I felt like I had my life back!'</p><h3>4. The Invitation (Call to Action)</h3><p>Tell them exactly what to do next. 'If you want to feel this kind of energy again, just drop a YES in the comments or send me a message!'</p>"}, {"title": "Words that Spark Joy vs. Sales Words", "content": "<p>People love to buy, but they hate being 'sold' to. Change your words to sound like a friend recommending a great movie.</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> Instead of <strong>'Buy my product'</strong>, say <strong>'Try this amazing solution'</strong>.</li><li><span class='lesson-check'>\u2713</span> Instead of <strong>'Join my downline'</strong>, say <strong>'Partner with me on this journey'</strong>.</li><li><span class='lesson-check'>\u2713</span> Instead of <strong>'It costs K1000'</strong>, say <strong>'It's a K1000 investment in your health'</strong>.</li></ul>"}]}, "sales": {"tag": "Module 04", "title": "Helping People Say YES to Health", "intro": "Sales is not about 'pushing' people to buy. It's about helping them find a solution to their problems. Think of yourself as a guide offering a helping hand.", "sections": [{"title": "The 5 'Helping Hand' Questions", "content": "<p>Don't just talk about the product. Ask these questions in order to help them realize they need a change:</p><ol class='lesson-list'><li>'What is your biggest health (or financial) goal right now?'</li><li>'How long has this been a challenge for you?'</li><li>'What have you already tried to make it better?'</li><li>'How is this problem affecting your daily life and family?'</li><li>'If I could show you a proven way to fix this, would you be ready to try it today?'</li></ol>"}, {"title": "Understanding the 4 Types of People", "content": "<p>Everyone makes decisions differently. Speak their language!</p><h3>1. The Fast Decider</h3><p>They want quick results. Keep it short. Focus on the bottom line and how much they can earn or how fast they can heal.</p><h3>2. The Fun Lover</h3><p>They love parties and friends. Talk about the team trips, the fun events, and the amazing community they will join.</p><h3>3. The Safe Player</h3><p>They need to feel secure. Share stories of others who succeeded. Assure them you will hold their hand every step of the way.</p><h3>4. The Detail Seeker</h3><p>They want facts. Send them the product ingredients, the compensation plan PDFs, and let them read it.</p>"}, {"title": "Handling the 'Let me think about it' Talk", "content": "<div class='dialog-box'><p>When someone says they need to think about it, they usually have a hidden worry. Be gentle but ask about it.</p><div class='dialog-line'><span class='speaker'>Them:</span> This looks great, but let me think about it.</div><div class='dialog-line'><span class='speaker'>You:</span> I totally understand! It's an important decision. Usually when my friends say they need to think about it, they are either not interested at all, or they are worried about the money or time. Which one is it for you, honestly?</div><div class='dialog-line'><span class='speaker'>Them:</span> Honestly, things are just tight right now financially.</div><div class='dialog-line'><span class='speaker'>You:</span> Thank you for sharing that. If finances are tight, isn't that the exact reason we should get you started on making an extra income this week? Let's figure out a plan together.</div></div>"}, {"title": "Secret Insight #1: The Power of 'NO'", "content": "<p>Most people are terrified of hearing the word 'No'. But top earners use 'No' to their advantage! When you give a prospect permission to say No, you remove all the sales pressure, and they immediately trust you more.</p><h3>The Pressure-Free Script:</h3><p><em>'Hey John, I wanted to show you this health project because I respect your business mind. If it's not a fit for you, that is 100% completely fine and we are still great friends. But if it is a fit, we could do some great things together. Are you open to looking?'</em></p><p>By telling them it's okay to say no, they relax and actually say YES to looking!</p>"}, {"title": "Secret Insight #2: The 'Puppy Dog' Close", "content": "<p>If you take a puppy home from the pet store 'just for the weekend', are you going to bring it back? Never! The same works for our physical products.</p><p>If someone is unsure, give them a sample. Say: <em>'I want you to try this GI Vital for just 3 days. I'll check on you on Friday. If you love how your stomach feels, we'll get you a full pack.'</em> Once they feel the relief, they will buy.</p>"}, {"title": "Secret Insight #3: The Golden Silence", "content": "<p>The biggest mistake amateurs make is 'talking past the sale'. When you ask the final question, you MUST stop talking. Let them think.</p><div class='dialog-box'><div class='dialog-line'><span class='speaker'>You:</span> 'So based on everything we've talked about, are you ready to start with the Starter Pack or the VIP Pack today?'</div><div class='dialog-line'><span class='speaker'>Action:</span> ZIP YOUR LIPS. Do not say another word. Even if it takes 30 seconds of awkward silence. The first person to speak, loses. Let them process and give you their answer.</div></div>"}]}, "branding": {"tag": "Module 05", "title": "Being the Person Everyone Wants to Know", "intro": "Your 'Brand' is simply your reputation. It's what people think of when they hear your name. We want them to think: 'That person is helpful, inspiring, and successful!' This module is your masterclass on becoming a magnet for new people.", "sections": [{"title": "The 3 Things to Be Known For (Your Pillars)", "content": "<p>If you only post about your business, people will get bored. Pick 3 things you love and talk about them equally. For example:</p><ol class='lesson-list'><li><strong>Healthy Living:</strong> Share your healthy meals, your morning walk, or drinking your tea.</li><li><strong>Helping Others (Business):</strong> Share stories of your team winning or products helping someone.</li><li><strong>Family/Faith/Hobbies:</strong> Show that you are a real person! Share a family photo or an inspiring quote.</li></ol>"}, {"title": "The 7-Day Easy Posting Plan", "content": "<p>Don't know what to post? Follow this schedule for one week:</p><ul class='lesson-list'><li><strong>Monday:</strong> A positive quote to start the week (Motivation).</li><li><strong>Tuesday:</strong> A picture of you using a product (Curiosity).</li><li><strong>Wednesday:</strong> A story about someone else who got healthy (Proof).</li><li><strong>Thursday:</strong> A picture of your family or pet (Connection).</li><li><strong>Friday:</strong> Ask a fun question: 'Coffee or Tea?' (Engagement).</li><li><strong>Saturday:</strong> Share a win you had this week in your business (Success).</li><li><strong>Sunday:</strong> A direct invitation: 'I have 2 spots left to help someone earn extra income this month. Message me!' (Call to Action).</li></ul>"}, {"title": "The Profile Check-Up", "content": "<p>Look at your WhatsApp or Facebook profile right now. Would you buy from you?</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>Your Photo:</strong> Use a clear, bright photo of your smiling face. No dark sunglasses or blurry pictures!</li><li><span class='lesson-check'>\u2713</span> <strong>Your Info:</strong> Your bio should say how you help people. E.g., 'Helping busy moms find natural energy and financial freedom.'</li><li><span class='lesson-check'>\u2713</span> <strong>Be Positive:</strong> Never complain on social media. People follow happy, positive leaders!</li></ul>"}, {"title": "Strategy 1: 'Document, Don't Create'", "content": "<p>People think they need to be a professional photographer to build a brand. False! People want REAL life, not perfect life.</p><h3>How to Document:</h3><p>Instead of trying to 'create' the perfect post, just 'document' your day. Take a selfie while reading a book. Show your kids playing while you work on your phone. Take a picture of your health shake in the morning. Real life builds massive trust!</p>"}, {"title": "Strategy 2: The 80/20 Trust Rule", "content": "<p>If every single post you make is 'Buy My Product' or 'Join My Team', people will block you. You must earn the right to sell.</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>80% of your posts:</strong> Should be Value, Fun, and Inspiration. Make people smile, teach them a health tip, or share a positive quote.</li><li><span class='lesson-check'>\u2713</span> <strong>20% of your posts:</strong> Should be Business. This is when you say 'I'm looking for 3 people to mentor this month.' Because they love your 80%, they will listen to your 20%!</li></ul>"}, {"title": "Strategy 3: Borrowing Authority (The VIP Trick)", "content": "<p>If you are brand new, you might think: 'Why would anyone listen to me? I haven't made money yet!' That is when you <strong>borrow authority</strong>.</p><p>Take a picture with your upline leader or a successful team member. Post it and say: <em>'So blessed to be mentored by this amazing leader who is changing lives all over Zambia!'</em> Your friends will see you hanging out with successful people, and they will automatically see YOU as more successful too.</p>"}, {"title": "Strategy 4: The 'Omnipresence' Web", "content": "<p>You want people to feel like you are everywhere. But you don't have time to be on your phone all day! Here is the secret to reaching 10x more people with 1 piece of work:</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> Record <strong>one</strong> short 30-second video sharing a health tip or a positive thought.</li><li><span class='lesson-check'>\u2713</span> Post it to your WhatsApp Status.</li><li><span class='lesson-check'>\u2713</span> Post that same video to Facebook Reels.</li><li><span class='lesson-check'>\u2713</span> Post that same video to TikTok.</li></ul><p>You did the work ONCE, but you reached three completely different groups of people. That is how you build a massive brand fast.</p>"}]}, "presenting": {"tag": "Module 06", "title": "Speaking From the Heart to a Group", "intro": "You don't need to be a 'professional speaker'. You just need to share your story with more than one person at a time. This module teaches you how to be confident in front of a crowd.", "sections": [{"title": "The 4 Questions Every Talk Must Answer", "content": "<p>When you stand up to speak, the audience has 4 questions in their head. Answer them in order:</p><h3>1. WHY should I listen?</h3><p>Tell them the benefit. 'Today, we are going to show you how to protect your family's health naturally.'</p><h3>2. WHAT is this?</h3><p>Explain the company and the amazing products simply.</p><h3>3. HOW does it work?</h3><p>Explain how they use the products or how they make money.</p><h3>4. WHAT IF I join?</h3><p>Paint a picture of a better future. 'Imagine waking up with no pain and no financial stress.'</p>"}, {"title": "How to Beat the Nerves", "content": "<p>It's completely normal to feel butterflies in your stomach! It just means you care about doing a good job.</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>Breathe:</strong> Before you start, take three deep, slow breaths.</li><li><span class='lesson-check'>\u2713</span> <strong>Change your focus:</strong> If you are nervous, you are thinking about yourself ('Will I look silly?'). Instead, think about the audience: 'I have a gift that will help these people feel better.' When you focus on helping, the fear goes away!</li><li><span class='lesson-check'>\u2713</span> <strong>Smile:</strong> Smiling relaxes your body and makes the audience like you instantly.</li></ul>"}]}, "events": {"tag": "Module 07", "title": "How to Host a Great Party or Meeting", "intro": "Meetings are where the magic happens and teams explode with growth. Whether it's at your home, an office, or a big hotel, we will show you exactly how to plan it perfectly from start to finish.", "sections": [{"title": "The 4 Types of Winning Events", "content": "<h3>1. Online Events (Zoom / Facebook Live)</h3><p>Perfect for reaching people far away. Easy to set up, zero cost. Great for quick weekly team trainings or guest presentations.</p><h3>2. Home Tea Parties</h3><p>The best way for beginners! Invite 5-10 friends to your living room. Make tea, serve some snacks, let them taste the products, and watch a short video together. It's relaxed and fun.</p><h3>3. Office One-on-Ones</h3><p>Very professional. You meet one person (or a couple) at a quiet office or coffee shop. Best for serious business builders who want to see the numbers in detail.</p><h3>4. Hotel Booking Events</h3><p>Big energy! You rent a hotel room, set up a projector, play upbeat music, and have multiple speakers. This shows guests the 'Bigger Picture' and proves the company is successful.</p>"}, {"title": "Phase 1: The Pre-Event Checklist (Before it starts)", "content": "<p>Preparation is everything!</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>Invite 3x the people:</strong> If you want 10 people to come, you must invite 30. Life happens and people get busy!</li><li><span class='lesson-check'>\u2713</span> <strong>The 24-Hour Reminder:</strong> Call or text everyone the day before: 'Hey! Just confirming our tea party tomorrow at 2 PM. I have a special gift waiting for you!'</li><li><span class='lesson-check'>\u2713</span> <strong>Setup the space:</strong> Make it clean and bright. Have the products displayed beautifully on a table so people can see and touch them.</li></ul>"}, {"title": "Phase 2: The In-Event Checklist (During the fun)", "content": "<p>Keep the energy high and the smiles wide!</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>Greet at the door:</strong> Welcome everyone with a big smile and a handshake or hug.</li><li><span class='lesson-check'>\u2713</span> <strong>Start on time:</strong> Respect the people who came early.</li><li><span class='lesson-check'>\u2713</span> <strong>Keep stories short:</strong> When sharing product results, keep it to 2 minutes per person. 'Before this, I felt X. I took the product. Now I feel Y.'</li><li><span class='lesson-check'>\u2713</span> <strong>Have forms ready:</strong> Have registration forms and pens on the table so it's easy for them to sign up right there.</li></ul>"}, {"title": "Phase 3: The Post-Event Checklist (After they leave)", "content": "<div class='dialog-box'><h3>The 24-Hour Follow-Up Rule:</h3><p>Most people will not buy at the event. They will buy the next day! You MUST call them within 24 hours.</p><div class='dialog-line'><span class='speaker'>You:</span> 'Hey [Name], thank you so much for coming yesterday! I had a great time with you.'</div><div class='dialog-line'><span class='speaker'>You:</span> 'Tell me, what did you like best about what you saw\u2014the health benefits of the products, or the idea of making extra income?'</div><p>(Whatever they say, agree with them, and then help them take the next step to register!)</p></div>"}]}, "zoom": {"tag": "Module 08", "title": "How to Look and Sound Great on Video", "intro": "Zoom allows you to talk to people all over the world without leaving your house. This module shows you how to look like a total professional from your phone or laptop.", "sections": [{"title": "The 3 Golden Rules of Video", "content": "<h3>1. Find the Light (Face the Window)</h3><p>The biggest mistake is sitting with a bright window BEHIND you. You will look like a dark shadow! Always sit so you are FACING the window or your ring light. Let the light shine on your smile.</p><h3>2. Clean Your Camera Lens</h3><p>Your phone gets dirty in your pocket. Before every video call, wipe the camera lens with a soft cloth. It makes the video 100x clearer!</p><h3>3. Eye-Level is Best</h3><p>Don't put your phone on the table pointing up at your chin. Put it on a stack of books so the camera is right at your eye level. It looks much more natural and friendly.</p>"}, {"title": "Keeping People Awake on Zoom", "content": "<p>It's easy for people to get distracted when watching a screen. Here is how to keep them listening:</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>Look at the camera dot:</strong> When you talk, look directly at the little camera hole, not at the pictures of people on the screen. It makes them feel like you are looking right into their eyes.</li><li><span class='lesson-check'>\u2713</span> <strong>Ask them to type:</strong> Every 5 minutes, ask a question. 'If you are excited about this, type a 1 in the chat box!' This forces them to pay attention and interact.</li></ul>"}]}};
+
+        function loadModule() {
+            const hash = window.location.hash.substring(1) || "prospecting";
+            const data = moduleData[hash];
+            const contentArea = document.getElementById('module-content');
+
+            if (!data) return;
+
+            // Update sidebar active state
+            document.querySelectorAll('.nav-item').forEach(item => {
+                if (item.getAttribute('data-target') === hash) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            let sectionsHtml = "";
+            data.sections.forEach(sec => {
+                sectionsHtml += `
+                    <section class="module-section">
+                        <h2>${sec.title}</h2>
+                        <div class="module-section-content">
+                            ${sec.content}
+                        </div>
+                    </section>
+                `;
+            });
+
+            contentArea.innerHTML = `
+                <div class="module-header">
+                    <span class="module-tag">${data.tag}</span>
+                    <h1>${data.title}</h1>
+                    <p class="module-intro">${data.intro}</p>
+                </div>
+                ${sectionsHtml}
+            `;
+            
+            window.scrollTo(0, 0);
+        }
+
+        window.addEventListener('hashchange', loadModule);
+        document.addEventListener('DOMContentLoaded', loadModule);
+    </script>
+</body>
+
+</html>
