@@ -110,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Theme Toggle Initialization
     const savedTheme = localStorage.getItem('theme');
-    const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const moonIcon = document.querySelector('.moon-icon');
     const sunIcon = document.querySelector('.sun-icon');
@@ -127,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+    if (savedTheme === 'dark') {
         applyTheme(true);
     } else {
         applyTheme(false);
