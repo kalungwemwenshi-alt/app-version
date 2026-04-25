@@ -251,9 +251,8 @@ h6 {
 
 @media (max-width: 768px) {
   .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    /* Reduced gap for mobile */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
   }
 }
 
@@ -1170,5 +1169,25 @@ h6 {
 
   .wa-chat-popup {
     width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-wow {
+    min-height: 70vh !important;
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    padding: 1rem !important;
+    font-size: 1rem !important;
   }
 }
